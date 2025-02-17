@@ -4,16 +4,23 @@
 
 {% block body %}
 
-    <div class="w-4/5 mx-auto text-center">
+  <div class="flex items-center justify-center">
+
+    <div class="w-3/4 flex flex-col">
 
         {% for category in forumCategory %}
 
-          <div class="w-[80%] bg-[#3c8dbc] mx-auto text-center">
-            <p class="border border-gray-300 p-4 text-lg rounded"> {{ category.name }} </p>
+          <div class="w-full bg-[#3c8dbc] mx-auto rounded text-start pl-2 mt-20">
+            <p class="p-4 text-xl font-extrabold text-[white]"> {{ category.name | upper }} </p>
           </div>
+
+          {% for %}
 
         {% endfor %}
 
     </div>
+
+  </div>
+
 
 {% endblock %}
