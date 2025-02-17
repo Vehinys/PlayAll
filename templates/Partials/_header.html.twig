@@ -3,7 +3,10 @@
     class="group w-16 hover:w-48 transition-all ease-in-out duration-500 h-screen bg-[#444] text-white font-bold fixed flex items-center justify-start"
   >
     <ul class="space-y-6">
+      <!-- ----------------------------------------------------------------------------------- -->
+
       <!-- Accueil -->
+
       <li class="flex items-center gap-4 px-4 hover:text-[#3c8dbc]">
         <a href="votre_url_ici" class="flex items-center">
           <span class="text-xl">
@@ -32,7 +35,12 @@
         </a>
       </li>
 
-      <!-- Les jeux -->
+      <!-- ----------------------------------------------------------------------------------- -->
+
+      {% if app.user %}
+
+      <!-- Le forum -->
+
       <li class="flex items-center gap-4 px-4 hover:text-[#3c8dbc]">
         <a href="votre_url_ici" class="flex items-center">
           <span class="text-xl">
@@ -63,6 +71,8 @@
           >
         </a>
       </li>
+
+      {% endif %}
 
       <!-- ----------------------------------------------------------------------------------- -->
 
@@ -101,6 +111,8 @@
 
       <!-- ----------------------------------------------------------------------------------- -->
 
+      {% if app.user %}
+
       <!-- Mon profil -->
 
       <li class="flex items-center gap-4 px-4 hover:text-[#3c8dbc]">
@@ -132,9 +144,16 @@
         </a>
       </li>
 
+      {% endif %}
+
+      <!-- ----------------------------------------------------------------------------------- -->
+
+      {% if app.user %}
+
       <!-- Déconnexion -->
+
       <li class="flex items-center gap-4 px-4 hover:text-[red]">
-        <a href="votre_url_ici" class="flex items-center">
+        <a href="{{ path('app_logout') }}" class="flex items-center">
           <span class="text-xl">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -160,9 +179,14 @@
         </a>
       </li>
 
+      <!-- ----------------------------------------------------------------------------------- -->
+
+      {% else %}
+
       <!-- Connexion -->
+
       <li class="flex items-center gap-4 px-4 hover:text-[#3c8dbc]">
-        <a href="votre_url_ici" class="flex items-center">
+        <a href="{{ path('app_login') }}" class="flex items-center">
           <span class="text-xl">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -188,9 +212,12 @@
         </a>
       </li>
 
+      <!-- ----------------------------------------------------------------------------------- -->
+
       <!-- Inscription -->
+
       <li class="flex items-center gap-4 px-4 hover:text-[#28a745]">
-        <a href="votre_url_ici" class="flex items-center">
+        <a href="{{ path('app_register') }}" class="flex items-center">
           <span class="text-xl">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -216,6 +243,7 @@
           >
         </a>
       </li>
+      {% endif %}
     </ul>
   </nav>
 </section>
