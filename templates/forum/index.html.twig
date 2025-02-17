@@ -1,12 +1,19 @@
-{% extends 'base.html.twig' %} 
+{% extends 'base.html.twig' %}
 
-{% block title %} Forum - LVDR {%endblock %} 
+{% block title %} Forum - LVDR {% endblock %}
 
-  {% block body %} 
+{% block body %}
 
-    {% for category in forumCategory %}
-    {{ category.name }}
+    <div class="w-4/5 mx-auto text-center">
 
-  {% endfor %} 
+        {% for category in forumCategory %}
+
+          <div class="w-[80%] bg-[#3c8dbc] mx-auto text-center">
+            <p class="border border-gray-300 p-4 text-lg rounded"> {{ category.name }} </p>
+          </div>
+
+        {% endfor %}
+
+    </div>
 
 {% endblock %}
