@@ -1,2 +1,12 @@
-{% extends 'base.html.twig' %} {% block title %}Hello ForumController!{%
-endblock %} {% block body %} {% endblock %}
+{% extends 'base.html.twig' %} 
+
+{% block title %} Forum - LVDR {%endblock %} 
+
+  {% block body %} 
+
+    {% for category in forumCategory %}
+    {{ category.name }}
+
+  {% endfor %} 
+
+{% endblock %}
