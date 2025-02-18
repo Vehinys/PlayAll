@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Modifier l'annonce - LVDR {% endblock %}
+
+{% block body %}
+
+  <div class="flex items-center justify-center min-h-screen bg-gray-100">
+      <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-2xl">
+          <h1 class="text-2xl font-bold text-gray-800 mb-4 text-center">Modifier l'annonce</h1>
+
+          {{ form_start(form, {'attr': {'class': 'space-y-4'}}) }}
+
+          <div>
+              {{ form_widget(form.message, {'attr': {'class': 'form-input w-4/5 p-3 flex mx-auto border border-gray-300 rounded-md focus:ring-2 focus:ring-[#02aadb] focus:border-[#02aadb] transition'}}) }}
+              {{ form_errors(form.message) }}
+          </div>
+
+          <div class="flex justify-center">
+              <button type="submit" class="bg-[#02aadb] text-white font-semibold py-2 px-6 rounded-md hover:bg-[#028db7] transition shadow-md">
+                  Mettre à jour l'annonce
+              </button>
+          </div>
+
+          {{ form_end(form) }}
+      </div>
+  </div>
+
+{% endblock %}

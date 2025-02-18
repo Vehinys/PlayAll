@@ -1,36 +1,18 @@
-<footer class="bg-[#444] text-white py-6 w-full fixed bottom-0">
-  <div
-    class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4"
-  >
-    <p class="text-sm">
-      Lesvoyageursdurêve &copy; 2025 - Tous droits réservés
-    </p>
-    <ul class="flex space-x-6">
-      <li>
-        <a href="#" class="hover:text-[#3c8dbc] transition-colors"
-          >Mentions Légales</a
-        >
-      </li>
-      <li>
-        <a href="#" class="hover:text-[#3c8dbc] transition-colors"
-          >Politique de Confidentialité</a
-        >
-      </li>
-      <li>
-        <a href="#" class="hover:text-[#3c8dbc] transition-colors">Contact</a>
-      </li>
-
-      {% if app.user and ( is_granted('ROLE_ADMIN')) %}
-      <li>
-        <a
-          href="{{ path('app_admin') }}"
-          class="hover:text-[#3c8dbc] transition-colors"
-        >
-          Administration
-        </a>
-      </li>
-
-      {% endif %}
-    </ul>
-  </div>
-</footer>
+<body class="flex flex-col min-h-screen">
+  <main class="flex-grow">
+      {% block body %}{% endblock %}
+  </main>
+  <footer class="bg-[#444] text-white py-6 w-full">
+      <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
+          <p class="text-sm">Lesvoyageursdurêve &copy; 2025 - Tous droits réservés</p>
+          <ul class="flex space-x-6">
+              <li><a href="#" class="hover:text-[#3c8dbc] transition-colors">Mentions Légales</a></li>
+              <li><a href="#" class="hover:text-[#3c8dbc] transition-colors">Politique de Confidentialité</a></li>
+              <li><a href="#" class="hover:text-[#3c8dbc] transition-colors">Contact</a></li>
+              {% if app.user and is_granted('ROLE_ADMIN') %}
+                  <li><a href="{{ path('app_admin') }}" class="hover:text-[#3c8dbc] transition-colors">Administration</a></li>
+              {% endif %}
+          </ul>
+      </div>
+  </footer>
+</body>

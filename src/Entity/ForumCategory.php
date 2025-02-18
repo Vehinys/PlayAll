@@ -24,6 +24,9 @@ class ForumCategory
     #[ORM\OneToMany(targetEntity: ForumSousCategory::class, mappedBy: 'forumCategory')]
     private Collection $Relation_Forum_SousForum;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?AnnonceForum $RelationAnnonceForum = null;
+
     public function __construct()
     {
         $this->Relation_Forum_SousForum = new ArrayCollection();
@@ -75,4 +78,17 @@ class ForumCategory
 
         return $this;
     }
+
+    public function getRelationAnnonceForum(): ?AnnonceForum
+    {
+        return $this->RelationAnnonceForum;
+    }
+
+    public function setRelationAnnonceForum(?AnnonceForum $RelationAnnonceForum): static
+    {
+        $this->RelationAnnonceForum = $RelationAnnonceForum;
+
+        return $this;
+    }
+
 }
