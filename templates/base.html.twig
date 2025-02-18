@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <meta charset="UTF-8" />
 
     <title>{% block title %} Welcome! {% endblock %}</title>
 
-    {% block stylesheets %} {% endblock %} {% block importmap %}
-
-    {{
-      importmap("app")
-    }}
-
+    {% block stylesheets %}
+      <link rel="stylesheet" href="{{ asset('build/tailwind.css') }}">
     {% endblock %}
+    
+
 
     <!-- JavaScript -->
     {% block javascripts %}
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+      <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     {% endblock %}
+
   </head>
 
   <body>
     <div class="container-wrap">
-      {% block header %} {% include "partials/_header.html.twig" %} {%
-      endblock%} {% block body %} {% endblock %} {% block footer %} {% include
-      "partials/_footer.html.twig" %} {% endblock %}
+      {% block header %} 
+        {% include "partials/_header.html.twig" %} 
+      {%endblock%} 
+      
+      {% block body %} 
+      
+      {% endblock %} 
+      
+      {% block footer %} 
+        {% include"partials/_footer.html.twig" %}
+      {% endblock %}
     </div>
   </body>
 </html>
